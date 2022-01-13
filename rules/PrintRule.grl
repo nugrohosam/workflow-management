@@ -1,0 +1,15 @@
+rule PrintImmidietlyTrue "When print true, print it now." salience 10 {
+    when
+        Print.Status == true
+    then
+        Print.Data = "Print Now";
+        Print.Status = Print.StatusIntermitten;
+}
+
+rule PrintImmidietlyFalse "When print false, dont print it now." salience 10 {
+    when
+        Print.Status == false
+    then
+        Print.Data = "Dont Print Now";
+        Print.Status = Print.StatusIntermitten;
+}
